@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @reminder.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @reminder.description %>
+</p>
+
+<p>
+  <strong>Due:</strong>
+  <%= @reminder.due %>
+</p>
+
+<p>
+  <strong>Issued:</strong>
+  <%= @reminder.issued %>
+</p>
+
+<p>
+  <strong>Updated:</strong>
+  <%= @reminder.updated %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @reminder.status %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @reminder.priority %>
+</p>
+
+<p>
+  <strong>Issuer:</strong>
+  <%= @reminder.issuer %>
+</p>
+
+<%= link_to 'Edit', edit_reminder_path(@reminder) %> |
+<%= link_to 'Back', reminders_path %>

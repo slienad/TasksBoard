@@ -44,24 +44,14 @@ namespace :deploy do
   after :finishing, "deploy:cleanup"
   
   desc "Set up configuration"
-  task :setup_config, roles: :app do
+  task :setup_config do
+  	on roles(:app), in sequence, wait: 5 do
     sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
-    run "mkdir -p #{shared_path}/config"
-
     puts "Check config files in #{shared_path}."
-  end
-  after "deploy:setup", "deploy:setup_config"
-
-  desc "Make sure local git is in sync with remote."
-  task :check_revision, roles: :web do
-    unless `git rev-parse HEAD` == `git rev-parse origin/master`
-      puts "WARNING: HEAD is not the same as origin/master"
-      puts "Run `git push` to sync changes."
-      exit
     end
   end
-  before "deploy", "deploy:check_revision"
+  after "deploy:setup", "deploy:setup_config"
 
 
 

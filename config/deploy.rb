@@ -51,7 +51,7 @@ namespace :deploy do
     puts "Check config files in #{shared_path}."
     end
   end
-  after "deploy:setup_config"
+  after :finishing, "deploy:setup_config"
 
 
 

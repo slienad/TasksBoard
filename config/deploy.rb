@@ -45,7 +45,7 @@ namespace :deploy do
   
   desc "Set up configuration"
   task :setup_config do
-  	on roles(:app), in sequence, wait: 5 do
+  	on roles(:app), in: :sequence, wait: 5 do
     sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
     puts "Check config files in #{shared_path}."

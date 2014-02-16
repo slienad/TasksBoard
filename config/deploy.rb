@@ -46,8 +46,8 @@ namespace :deploy do
   desc "Set up configuration"
   task :setup_config do
   	on roles(:app), in: :sequence, wait: 5 do
-    sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/TasksBoard"
-    sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_TasksBoard"
+    "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/TasksBoard"
+    "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_TasksBoard"
     puts "Check config files in #{shared_path}."
     end
   end

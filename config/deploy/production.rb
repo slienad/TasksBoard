@@ -31,7 +31,7 @@ server '87.106.98.196',
    roles: %w{web app},
    ssh_options: {
      user: 'deployer', # overrides user setting above
-     keys: %w(/home/deployer/.ssh/id_rsa),
+#     keys: %w(/home/deployer/.ssh/id_rsa),
      forward_agent: true,
 #     auth_methods: %w(publickey password)
 	 password: '@maheva1996!'

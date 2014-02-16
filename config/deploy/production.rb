@@ -32,7 +32,7 @@ server '87.106.98.196',
    ssh_options: {
      user: 'deployer', # overrides user setting above
 #     keys: %w(/home/user_name/.ssh/id_rsa),
-     forward_agent: false,
+     forward_agent: true,
 #     auth_methods: %w(publickey password)
 	 password: '@maheva1996!'
    }
